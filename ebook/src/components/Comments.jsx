@@ -18,12 +18,12 @@ export class Comments extends Component {
   componentDidMount = async() =>{
     let id = this.props.book.asin
     const dReviews =[]
-      let response = await fetch(' https://striveschool.herokuapp.com/api/comments/'+id,{
+      let response = await fetch('https://strivebookstore.herokuapp.com/comments/'+id,{
         method :'GET',
-        headers : new Headers({
-          'Authorization': 'Basic dXNlcjE4OlEyejVWN2hFRlU2SktSckU=',
-          // 'Content-type': "application/json"
-        })
+        // headers : new Headers({
+        //   'Authorization': 'Basic dXNlcjE4OlEyejVWN2hFRlU2SktSckU=',
+        //   // 'Content-type': "application/json"
+        // })
       })
       let parsedJson = await response.json()
       parsedJson.forEach(element =>{
