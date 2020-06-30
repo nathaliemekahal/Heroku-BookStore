@@ -37,12 +37,13 @@ export class Comments extends Component {
     if (this.props.book.asin !== prevProps.book.asin) {
       let response = await fetch('https://strivebookstore.herokuapp.com/comments/'+id,{
         method :'GET',
-        headers : new Headers({
-          'Authorization': 'Basic dXNlcjE4OlEyejVWN2hFRlU2SktSckU=',
-          // 'Content-type': "application/json"
-        })
+        // headers : new Headers({
+        //   // 'Authorization': 'Basic dXNlcjE4OlEyejVWN2hFRlU2SktSckU=',
+        //   // 'Content-type': "application/json"
+        // })
       })
       let parsedJson = await response.json()
+      console.log("PARSEDJSON",parsedJson)
       // console.log(parsedJson)
       parsedJson.forEach(element =>{
         dReviews.push(element)
