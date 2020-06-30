@@ -35,7 +35,7 @@ export class Comments extends Component {
     let id = this.props.book.asin
     const dReviews =[]
     if (this.props.book.asin !== prevProps.book.asin) {
-      let response = await fetch(' https://striveschool.herokuapp.com/api/comments/'+id,{
+      let response = await fetch('https://strivebookstore.herokuapp.com/comments/'+id,{
         method :'GET',
         headers : new Headers({
           'Authorization': 'Basic dXNlcjE4OlEyejVWN2hFRlU2SktSckU=',
@@ -64,11 +64,11 @@ export class Comments extends Component {
     }
     sendComms = async() =>{
       try{
-        let response = await fetch('https://striveschool.herokuapp.com/api/comments/',{
+        let response = await fetch('https://strivebookstore.herokuapp.com/comments/',{
           method :'POST',
           body: JSON.stringify(this.state.review),
           headers : new Headers({
-            'Authorization': 'Basic dXNlcjE4OlEyejVWN2hFRlU2SktSckU=',
+            // 'Authorization': 'Basic dXNlcjE4OlEyejVWN2hFRlU2SktSckU=',
             'Content-type': "application/json"
           })
         })
